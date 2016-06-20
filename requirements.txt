@@ -1,5 +1,5 @@
 Flask==0.11
 Gunicorn==19.6.0
 stripe==1.35.0
-request=0.0.7
-jsonify=0.5
+request==0.0.7
+jsonify==0.5
