@@ -27,11 +27,12 @@ def charge():
             description = "Example charge"
         )
         print charge
+        return jsonify({"chargeID":charge.id})
     except stripe.error.CardError as e:
         print "The card has been declined"
         pass
         
-    return jsonify({"chargeID":charge.id})
+    return jsonify({"chargeID":"failed"})
 
     
     
