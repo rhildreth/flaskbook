@@ -19,6 +19,7 @@ def charge():
     stripe.api_key = "sk_test_GHr5dXDw5KyZXmEYUghkBezc"
     content = request.json
     token = content['stripeToken']
+    print token
     try:
         charge = stripe.Charge.create(
             amount = 100,
