@@ -29,7 +29,7 @@ def charge():
             amount = amountInCents,
             currency = "usd",
             source = token,
-            description = content['description']
+#            description = content['description']
         )
         print "charge*********"
         print charge
