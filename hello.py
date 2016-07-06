@@ -20,10 +20,11 @@ def user(name):
 def charge():
     stripe.api_key = "sk_test_GHr5dXDw5KyZXmEYUghkBezc"
     content = request.json
+    print "**content"
+    print content
     token = content['stripeToken']
     amountInCents = content['amountInCents']
-    print "token********"
-    print token.id
+    
     try:
         charge = stripe.Charge.create(
             amount = amountInCents,
