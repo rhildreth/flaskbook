@@ -21,16 +21,16 @@ def charge():
     stripe.api_key = "sk_test_GHr5dXDw5KyZXmEYUghkBezc"
     content = request.json
     token = content['stripeToken']
-#    amountInCents = content['amountInCents']
+    amountInCents = content['amountInCents']
     print "token********"
-#    print token.id
+    print token.id
     try:
         charge = stripe.Charge.create(
-            amount = 200,
+            amount = amountInCents,
             currency = "usd",
             source = token,
-#            description = content['description']
-			description = "test2"
+            description = content['description']
+			
         )
         print "charge*********"
         print charge
