@@ -24,14 +24,14 @@ def charge():
     print content
     token = content['stripeToken']
     amountInCents = content['amountInCents']
-    
+    contentMetadata = content['metadata']
     try:
         charge = stripe.Charge.create(
             amount = amountInCents,
             currency = "usd",
             source = token,
             description = content['description']
-			
+			metadata = contentMetadata
         )
         print "charge*********"
         print charge
