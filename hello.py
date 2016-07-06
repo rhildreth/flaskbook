@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     print "test"
-    return '<h1>Hello World!</h1>'
+    return '<h1>OpenSpot Server</h1>'
 
 
 @app.route('/user/<name>')
@@ -23,13 +23,13 @@ def charge():
     token = content['stripeToken']
     amountInCents = content['amountInCents']
     print "token********"
-    print token
+    print token.id
     try:
         charge = stripe.Charge.create(
             amount = amountInCents,
             currency = "usd",
             source = token,
-            description = "Example charge"
+            description = content['description']
         )
         print "charge*********"
         print charge
