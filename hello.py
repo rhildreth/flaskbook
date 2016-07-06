@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 import stripe
+import json,httplib
+import requests
 app = Flask(__name__)
 
 
@@ -19,14 +21,17 @@ def charge():
     stripe.api_key = "sk_test_GHr5dXDw5KyZXmEYUghkBezc"
     content = request.json
     token = content['stripeToken']
+    amountInCents = content['amountInCents']
+    print "token********"
     print token
     try:
         charge = stripe.Charge.create(
-            amount = 100,
+            amount = amountInCents,
             currency = "usd",
             source = token,
             description = "Example charge"
         )
+        print "charge*********"
         print charge
         return jsonify({"chargeID":charge.id})
     except stripe.error.CardError as e:
