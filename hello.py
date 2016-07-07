@@ -30,8 +30,8 @@ def charge():
             amount = amountInCents,
             currency = "usd",
             source = token,
-            description = content['description']
-			metadata = {'test': 'result'}
+            description = content['description'],
+            metadata = content['meta']
         )
         print "charge*********"
         print charge
